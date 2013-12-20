@@ -21,9 +21,9 @@ If you don't remember, the **factorial** of a non-negative integer <span class="
   </span>
 </p>
 
-The factorial function wasn't pulled out of a mathematician's hat &mdash; it has a very concrete meaning. If you have 3 socks, for example, there are 3! = 6 ways to order those socks. In general, if you have a set of <span class="latex">n</span> things then there are <span class="latex">n!</span> ways to order those things.
+The factorial function wasn't pulled out of a mathematician's hat–it has a very concrete meaning. If you have 3 socks, for example, there are 3! = 6 ways to order those socks. In general, if you have a set of <span class="latex">n</span> things then there are <span class="latex">n!</span> ways to order those things.
 
-By convention we define
+By convention we define:
 
 <p style="text-align: center;">
   <span class="latex">
@@ -33,7 +33,7 @@ By convention we define
   </span>
 </p>
 
-so that we can formaly define the factorial as
+So that we can formally define the factorial as:
 
 <p style="text-align: center;">
   <span class="latex">
