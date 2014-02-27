@@ -2,7 +2,7 @@
 
 ##Learning Competencies
 
-* Writing recursive methods
+* Write recursive methods
 * Use methods to modularize code
 
 ##Summary
