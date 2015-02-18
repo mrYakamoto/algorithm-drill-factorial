@@ -7,19 +7,19 @@
 
 ##Summary
 
-We're going to write a Ruby method `factorial` to compute the [factorial](http://en.wikipedia.org/wiki/Factorial) of an integer. You've [done this before as an exercise](https://socrates.devbootcamp.com/exercises/21), so feel free to look at other students' solutions.
+We're going to write a Ruby method `factorial` to compute the [factorial](http://en.wikipedia.org/wiki/Factorial) of an integer.
 
 The focus this time around will be on understanding **[recursion](http://en.wikipedia.org/wiki/Recursion_%28computer_science%29)**.
 
 If you don't remember, the **factorial** of a non-negative integer `n`, denoted `n!`, is the product of all positive integers less than `n`. For example,
 
 ```shell
-5! = 5 * 4 * 3 * 2 * 1 
-6! = 6 * 5 * 4 * 3 * 2 * 1 
+5! = 5 * 4 * 3 * 2 * 1
+6! = 6 * 5 * 4 * 3 * 2 * 1
       ......
 
 n! = n * (n - 1) * (n - 2) ..... * 2 * 1
-   
+
 ```
 
 The factorial function wasn't pulled out of a mathematician's hat, it has a very concrete meaning. If you have 3 socks, for example, there are 3! = 6 ways to order those socks. In general, if you have a set of `n` things then there are `n!` ways to order those things.
@@ -34,7 +34,7 @@ So that we can formally define the factorial as:
 
 ```shell
 n! =
-  1 if n = 0 
+  1 if n = 0
   n * (n-1)! & otherwise
 ```
 
@@ -50,15 +50,13 @@ The most important thing to understand is that every recursive problem has some 
 
 ###Release 0 : Factorial, Iteratively
 
-Implement an iterative version of the factorial function called `factorial_iterative`. It should accept any non-negative integer as input. Don't worry about handling bad input.
+Implement an iterative version of the factorial function called `factorial_iterative`. It should accept any non-negative integer as input. Don't worry about handling bad input. **Make sure tests pass**, and add your own tests (for example, `0!` is an edge case, probably worth testing).
 
 ###Release 1 :  Factorial, Recursively
 
-Implement a recursive version of the factorial function called `factorial_recursive`. It should accept any non-negative integer as input. Don't worry about handling bad input.
+Implement a recursive version of the factorial function called `factorial_recursive`. It should accept any non-negative integer as input. Don't worry about handling bad input. **Make sure you write tests** for your recursive solution to prove that it works correctly.
 
 What's the largest value your recursive factorial function can take as its input before it crashes? What does the error mean?
-
-<!-- ##Optimize Your Learning -->
 
 ##Resources
 
