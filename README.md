@@ -35,12 +35,10 @@ So that we can formally define the factorial as:
 ```shell
 n! =
   1 if n = 0
-  n * (n-1)! & otherwise
+  n * (n-1)!
 ```
 
 This definition is called **recursive** because we define the factorial of `n` in terms of the factorial of `n-1`. We stop at the **base case**, where `n = 0`.
-
-This is your first run-in with **recursion** at DBC. It will seem strange at first, but you'll quickly get used to it. Eventually, you'll develop a kind of sixth sense and start saying things like, "This feels like a recursive problem."
 
 The most important thing to understand is that every recursive problem has some number of **base cases**, the condition that acts like the "kick" from Inception, bumping you back up ever-closer to where you came from. The base case is the part of the recursive problem that is not defined in terms of itself.
 
