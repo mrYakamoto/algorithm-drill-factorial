@@ -76,19 +76,26 @@ Because of this, we could say, for example, that four factorial is equal to four
 *Note:* By convention, zero factorial is equal to one.
 
 
+## Releases
+### Release 0: Iteratively Calculate a Factorial
+We'll start by writing a method that calculates a factorial for a given number using an iterative implementation.  The method should accept any non-negative integer as input and calculate the factorial of that number—don't worry about handling bad input.
+
+Tests have been provided to describe the behavior of the method (see file `spec/factorial_spec.rb`).
 
 
-##Releases
+### Release 1: Recursively Calculate a Factorial
+Now we're going to write a method with the same behaviors as our iterative method but with a recursive implementation.  No tests have been provided; we'll need to write them ourselves.
 
-###Release 0 : Factorial, Iteratively
 
-Implement an iterative version of the factorial function called `factorial_iterative`. It should accept any non-negative integer as input. Don't worry about handling bad input. **Make sure tests pass**, and add your own tests (for example, `0!` is an edge case, probably worth testing).
+### Release 2: Stack Level Too Deep
+In the `runner.rb` file, we call our recursive method to calculate the factorial of 5,000.  In order to do the actual calculation, the method will be called again for 4,999 and 4,998 and so on ... right on down to 1.  Depending upon our implementation, the method will be called right around 5,000 times.
 
-###Release 1 :  Factorial, Recursively
+Each of these method calls operates in it's own little piece of the memory.  And, each call occupies that memory until the method returns.  When we call `factorial_recursive(5000)`, the method doesn't return until it first evaluates `factorial_recursive(4999)`, which doesn't return until it first evaluates `factorial_recursive(4998)`, and so on.  Little by little, we're using more and more memory.
 
-Implement a recursive version of the factorial function called `factorial_recursive`. It should accept any non-negative integer as input. Don't worry about handling bad input. **Make sure you write tests** for your recursive solution to prove that it works correctly.
+Each of those roughly 5000 method calls takes up a little piece of memory until we hit our base case and start returning values.  `factorial_recrusive(1)` returns, which allows `factorial_recursive(2)` to return, which allows `factorial_recursive(3)` to return, and so on until all of the method calls are evaluated, and the memory they occupied is freed.
 
-What's the largest value your recursive factorial function can take as its input before it crashes? What does the error mean?
+Adjust the number used in the runner file to determine the largest value our recursive factorial method can take as its input before it crashes?  What error do we receive?  What does the error mean?
+
 
 ##Resources
 
