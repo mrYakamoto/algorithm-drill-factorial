@@ -92,7 +92,7 @@ Now we're going to write a method with the same behaviors as our iterative metho
 ### Release 2: Stack Level Too Deep
 In the `runner.rb` file, we call our recursive method to calculate the factorial of 5,000.  In order to do the actual calculation, the method will be called again for 4,999 and 4,998 and so on ... right on down to 1.  Depending upon our implementation, the method will be called right around 5,000 times.
 
-Each of these method calls operates in it's own little piece of the memory.  And, each call occupies that memory until the method returns.  When we call `factorial_recursive(5000)`, the method doesn't return until it first evaluates `factorial_recursive(4999)`, which doesn't return until it first evaluates `factorial_recursive(4998)`, and so on.  Little by little, we're using more and more memory.
+Each of these method calls operates in it's own little piece of the computer's memory.  And, each call occupies that memory until the method returns.  When we call `factorial_recursive(5000)`, the method doesn't return until it first evaluates `factorial_recursive(4999)`, which doesn't return until it first evaluates `factorial_recursive(4998)`, and so on.  Little by little, we're using more and more memory.
 
 Each of those roughly 5000 method calls takes up a little piece of memory until we hit our base case and start returning values.  `factorial_recrusive(1)` returns, which allows `factorial_recursive(2)` to return, which allows `factorial_recursive(3)` to return, and so on until all of the method calls are evaluated, and the memory they occupied is freed.
 
