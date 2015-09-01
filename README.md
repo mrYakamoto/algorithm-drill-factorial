@@ -1,48 +1,82 @@
-# Algorithm Drill Factorial
+# Algorithm Drill: Calculate a Factorial
 
-##Learning Competencies
+## Summary
+In this challenge we're going to write two solutions to the same problem.  We'll write two methods that behave the same way—they'll accept the same arguments and return the same values.  They'll differ in their implementations (i.e., how they do what they do).
 
-* Write recursive methods
-* Use methods to modularize code
+The problem that we'll solve is calculating the factorial of a given number—more on what that means later.  We'll solve this problem by writing both an *iterative* solution and a *recursive* solution.  These approaches are useful when solving a problem requires repetitive execution.  
 
-##Summary
 
-We're going to write a Ruby method `factorial` to compute the [factorial](http://en.wikipedia.org/wiki/Factorial) of an integer.
-
-The focus this time around will be on understanding **[recursion](http://en.wikipedia.org/wiki/Recursion_%28computer_science%29)**.
-
-If you don't remember, the **factorial** of a non-negative integer `n`, denoted `n!`, is the product of all positive integers less than `n`. For example,
-
-```shell
-5! = 5 * 4 * 3 * 2 * 1
-6! = 6 * 5 * 4 * 3 * 2 * 1
-      ......
-
-n! = n * (n - 1) * (n - 2) ..... * 2 * 1
-
+### Iterative Algorithms
+```ruby
+def countdown_script(number)
+  script = String.new
+  
+  while number > 0
+    script << "#{number} ... \n"
+    number -= 1
+  end
+  
+  script << "Blast off!"
+end
 ```
+*Figure 1*.  Iterative algorithm to generate a countdown script using a while loop.
 
-The factorial function wasn't pulled out of a mathematician's hat, it has a very concrete meaning. If you have 3 socks, for example, there are 3! = 6 ways to order those socks. In general, if you have a set of `n` things then there are `n!` ways to order those things.
+While we might not recognize the name, we're probably familiar with writing [iterative](https://en.wikipedia.org/wiki/Iteration#Computing) algorithms.  What are some signs that we're writing an iterative algorithm?  Our methods involve looping—maybe with `while` or `until`.  We do something a certain number of times.  Or, when we iterate over the elements in an array.
 
-By convention we define:
+In Figure 1 we see an iterative solution to generating a countdown script.  The method builds and returns a string.  It does so using a while loop:  as long as the variable number points to an integer greater than zero, the method will keep adding to the script.  Important factors in such a method are knowing when to break out of the loop and making sure that we'll eventually hit the break condition.  How are these done in the method in Figure 1?
 
-```shell
+
+### Recursive Algorithms
+```ruby
+def countdown_script(number)
+  return "Blast off!" if number < 1
+  "#{number} ... \n" + countdown_script(number - 1)
+end
+```
+*Figure 2*.  Recursive solution to generating a countdown script.
+
+Writing a [recursive](http://en.wikipedia.org/wiki/Recursion_%28computer_science%29) method is another approach to solving the same types of problems that we solve with iterative algorithms.  In Figure 2, we solve the same problem of generating a countdown script, but we do so using recursion.
+
+One critical feature of writing a recursive method is the *base case*.  This is a known solution to the problem.  In generating a countdown script, we know that when we get below one, it's time for blast off.  In other words, we have our base case; if the number passed to our method is less than one, we'll just return the string `'Blast off!'` and be done.
+
+"What are the base cases?" should be the first question we ask every time we want to approach a problem recursively. Many recursive problems have only one base case, but others have multiple base cases.
+
+With our base case, we know what to return if the number passed to our method is zero or a negative number.  But otherwise, we need to build the script.  We do so in small steps.  We don't know exactly what the whole script will look like, but we know what one chunk of it looks like:  `"#{number} ... \n"`.
+
+We just need to combine that chunk with the rest of the countdown script.  And, to generate the rest of the script, we'll call our `countdown_script` method again—this time for one number less than we had previously.  This is the most obvious feature of a recursive method:  the method calls itself.
+
+
+### Calculating a Factorial
+```
 0! = 1
+1! = 1
+2! = 1 * 2
+3! = 1 * 2 * 3
+4! = 1 * 2 * 3 * 4
 ```
+*Figure 3*.  Example factorial calculations
 
-So that we can formally define the factorial as:
+What is a [factorial](http://en.wikipedia.org/wiki/Factorial)?  For a given number, the factorial of that number is the product of all the positive integers less than or equal to the number itself.  To provide some examples, two factorial is equal to two times one.  Three factorial is equal to three times two times one.  Four factorial is equal to four times three times two times one. (see Figure 3; we denote a number's factorial as `n!`)
 
-```shell
-n! =
-  1 if n = 0
-  n * (n-1)!
+While this might sound very theoretical, calculating a factorial has real-world applications.  For example, calculating a factorial will tell us how many different ways we can arrange a set of items.  If we have ten books on a bookshelf, for example, there are `10!` different ways to order the books. In general, if we have a set of `n` items then there are `n!` ways to order them.
+
+Looking back at Figure 3, we might notice that the calculation for three factorial shares some factors with two factorial:  they both include multiplying two times one.  And four factorial overlaps with three factorial:  calculating each involves multiplying three times two times one.
+
 ```
+0! = 1
+1! = 1 * 0!
+2! = 2 * 1!
+3! = 3 * 2!
+4! = 4 * 3!
+```
+*Figure 4*.  Calculating a numbers factorial in terms of another factorial.
 
-This definition is called **recursive** because we define the factorial of `n` in terms of the factorial of `n-1`. We stop at the **base case**, where `n = 0`.
+Because of this, we could say, for example, that four factorial is equal to four times three factorial.  Or, more generally, that the factorial of any number is equal to that number times the factorial of that number minus one. (see Figure 4)
 
-The most important thing to understand is that every recursive problem has some number of **base cases**, the condition that acts like the "kick" from Inception, bumping you back up ever-closer to where you came from. The base case is the part of the recursive problem that is not defined in terms of itself.
+*Note:* By convention, zero factorial is equal to one.
 
-"What are the base cases?" should be the first question you ask every time you want to approach a problem recursively. Many recursive problems have only one base case, but others have more.
+
+
 
 ##Releases
 
