@@ -97,7 +97,7 @@ Each of those roughly 5000 method calls takes up a little piece of memory until 
 Adjust the number used in the runner file to determine the largest value our recursive factorial method can take as its input before it crashes?  What error do we receive?  What does the error mean?
 
 
-##Resources
+## Conclusion
+Iteration and recursion are different types of implementations.  Each can generally provide the same behavior as the other.  Why choose one over the other?  We might have performance concerns that lead us in one direction.  We might find that one implementation leads to cleaner, more concise, more readable code.
 
-* [recursion](http://en.wikipedia.org/wiki/Recursion_%28computer_science%29)
-* [factorial](http://en.wikipedia.org/wiki/Factorial)
+Over time, as we practice and become more aware of each approach and more comfortable implementing each approach, the choice of iteration or recursion will become more natural.  We'll come to see certain problems as iterative or recursive problems.
